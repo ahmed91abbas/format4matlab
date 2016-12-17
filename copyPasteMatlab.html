@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="generator" content=
+    "HTML Tidy for Windows (vers 14 February 2006), see www.w3.org">
+    <title>
+      Clean my text
+    </title>
+  </head>
+  <body>
+    <span>
+    <textarea id="inputText" warp="on" placeholder=
+    "Copy and paste your document here..." style=
+    "resize: none; overflow: hidden; height: 253.333px; min-height: 250px; width: 500.0px; font-family: Arial; word-wrap: break-word;"
+    rows="12">
+</textarea> 
+    <textarea readonly id="outputText" warp="on" placeholder=
+    "The formated text will be shown here." style=
+    "resize: none; overflow: hidden; height: 253.333px; min-height: 250px; width: 500.0px; font-family: Arial; word-wrap: break-word;"
+    rows="12">
+</textarea></span>
+    <p>
+      <button onclick="format()">Format!!</button>
+    </p><script type="text/javascript">
+    
+                var textarea = document.getElementById("inputText");
+        var textarea2 = document.getElementById("outputText");
+    function format() {
+        var input = new String(textarea.value);
+        var res = input.replace(/>>/g, "");
+        res = res.replace(/’/g, "'");
+        textarea2.value = res;
+        textarea2.select();
+    } 
+    </script>
+    <p>
+      How does it work?
+    </p>
+    <p>
+      Just paste your matlab commands in the first text box then press the
+      button "Format!!", this will format your input to something that matlab
+      likes and all what's left is to press ctrl + c and you are done! Now you
+      can paste your commands in matlab...
+    </p>
+    <p>
+      You can find some test samples in this link: 
+	  <span id="link"><script type="text/javascript">
+ var link = document.createElement('a');
+      link.textContent = 'matstat labb4';
+      link.href = 'http://www.maths.lth.se/matstat/kurser/fms012/cdi/lab/fms012_lab4_ht16.pdf';
+      document.getElementById('link').appendChild(link);
+      </script></span>
+    </p>
+  </body>
+</html>
