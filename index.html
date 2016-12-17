@@ -7,22 +7,22 @@
       Format 4 Matlab
     </title>
   </head>
-  <body>
+  <body style="background-color:bisque;">
     <span>
     <textarea id="inputText" warp="on" placeholder=
     "Copy and paste your document here..." style=
-    "resize: none; overflow: hidden; height: 253.333px; min-height: 250px; width: 500.0px; font-family: Arial; word-wrap: break-word;"
+    "resize: none; height: 253.333px; min-height: 250px; width: 500.0px; font-family: Arial; word-wrap: break-word; background-color:aliceblue;"
     rows="12">
 </textarea> 
     <textarea readonly id="outputText" warp="on" placeholder=
     "The formated text will be shown here." style=
-    "resize: none; overflow: hidden; height: 253.333px; min-height: 250px; width: 500.0px; font-family: Arial; word-wrap: break-word;"
+    "resize: none; height: 253.333px; min-height: 250px; width: 500.0px; font-family: Arial; word-wrap: break-word; background-color:aliceblue;"
     rows="12">
 </textarea></span>
     <p>
-      <button onclick="format()">Format!!</button>
+      <button onclick="format()" style="height: 40px; width: 150px;"><b>Format!!</b></button>
     </p><script type="text/javascript">
-    
+
                 var textarea = document.getElementById("inputText");
         var textarea2 = document.getElementById("outputText");
     function format() {
@@ -33,9 +33,7 @@
         textarea2.select();
     } 
     </script>
-    <p>
-      How does it work?
-    </p>
+     <h1> How does it work? </h1>  
     <p>
       Just paste your matlab commands in the first text box then press the
       button "Format!!", this will format your input to something that matlab
@@ -43,13 +41,9 @@
       can paste your commands in matlab...
     </p>
     <p>
-      You can find some test samples in this link: 
-	  <span id="link"><script type="text/javascript">
- var link = document.createElement('a');
-      link.textContent = 'matstat labb4';
-      link.href = 'http://www.maths.lth.se/matstat/kurser/fms012/cdi/lab/fms012_lab4_ht16.pdf';
-      document.getElementById('link').appendChild(link);
-      </script></span>
+      You can find some test samples in this link: <a href=
+      "http://www.maths.lth.se/matstat/kurser/fms012/cdi/lab/fms012_lab4_ht16.pdf">
+      matstat labb4</a>
     </p>
   </body>
 </html>
