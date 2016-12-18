@@ -58,9 +58,11 @@
         var textarea2 = document.getElementById("outputText");
     function format() {
         var input = new String(textarea.value);
-        var res = input.replace(/>>/g, "");
-        res = res.replace(/’/g, "'");
-        textarea2.value = res;
+		for(var i = 0; i < sourceReplaceArray.length; i++){
+			var regEx = new RegExp(sourceReplaceArray[i], "g");
+			input = input.replace(regEx, targetReplaceArray[i]);
+		}
+        textarea2.value = input;
         textarea2.select();
     } 
     </script>
