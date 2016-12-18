@@ -33,7 +33,9 @@
       "resize: none; background-color:lightGray;" rows="1">
 </textarea> <button onclick="addFilter()">+</button>
     </p>
-    <p id="filterList"></p><script type="text/javascript">
+    <p id="filterList"></p>
+	<script type="text/javascript">
+	document.getElementById("inputText").focus();
     var sourceReplaceArray = [">>", "’"];
         var targetReplaceArray = ["", "'"];
         updateFilterList();
@@ -71,7 +73,8 @@
     </script>
     <h1>
       How does it work?
-    </h1>Just paste your matlab commands in the first text box then press the
+    </h1>
+	Just paste your matlab commands in the first text box then press the
     button "Format!!", this will format your input to something that matlab
     likes and all what's left is to press ctrl + c and you are done! Now you
     can paste your commands in matlab...<br>
