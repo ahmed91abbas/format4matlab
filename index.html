@@ -21,8 +21,39 @@
 </textarea></span>
     <p>
       <button onclick="format()" style="height: 40px; width: 150px;"><b>Format!!</b></button>
-    </p><script type="text/javascript">
-
+    </p>
+		<p>Add a new filter:</p>
+		<p> Replace
+		<textarea id="replaceSource" style="resize: none; background-color:lightGray;" rows="1"></textarea>
+		with 
+		<textarea id="replaceTarget" style="resize: none; background-color:lightGray;" rows="1"></textarea>
+		<button onclick="addFilter()">+</button>
+		</p>
+		<p id="filterList"></p>
+	<script type="text/javascript">
+	var sourceReplaceArray = [">>", "’"];
+	var targetReplaceArray = ["", "'"];
+	updateFilterList();
+	function addFilter(){
+		var sourceTxt = document.getElementById("replaceSource").value;
+		var targetTxt = document.getElementById("replaceTarget").value;
+		sourceReplaceArray.push(sourceTxt);
+		targetReplaceArray.push(targetTxt);
+		updateFilterList();
+		document.getElementById("replaceSource").value = "";
+		document.getElementById("replaceTarget").value = "";
+	}
+	
+	function updateFilterList(){
+	document.getElementById("filterList").innerHTML = "Filter list: ";
+	for(var i = 0; i < sourceReplaceArray.length; i++){
+		var source = sourceReplaceArray[i];
+		var target = targetReplaceArray[i];
+		var output = " (" + source.fontcolor("blue") + " replaced with: " + target.fontcolor("blue") + ")";
+		document.getElementById("filterList").innerHTML += output;
+		}
+	}
+	
                 var textarea = document.getElementById("inputText");
         var textarea2 = document.getElementById("outputText");
     function format() {
