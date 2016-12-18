@@ -1,8 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <meta name="generator" content=
-    "HTML Tidy for Windows (vers 14 February 2006), see www.w3.org">
     <title>
       Format 4 Matlab
     </title>
@@ -20,63 +18,75 @@
     rows="12">
 </textarea></span>
     <p>
-      <button onclick="format()" style="height: 40px; width: 150px;"><b>Format!!</b></button>
+      <button onclick="format()" style=
+      "height: 40px; width: 150px;"><b>Format!!</b></button>
     </p>
-		<p>Add a new filter:</p>
-		<p> Replace
-		<textarea id="replaceSource" style="resize: none; background-color:lightGray;" rows="1"></textarea>
-		with 
-		<textarea id="replaceTarget" style="resize: none; background-color:lightGray;" rows="1"></textarea>
-		<button onclick="addFilter()">+</button>
-		</p>
-		<p id="filterList"></p>
-	<script type="text/javascript">
-	var sourceReplaceArray = [">>", "’"];
-	var targetReplaceArray = ["", "'"];
-	updateFilterList();
-	function addFilter(){
-		var sourceTxt = document.getElementById("replaceSource").value;
-		var targetTxt = document.getElementById("replaceTarget").value;
-		sourceReplaceArray.push(sourceTxt);
-		targetReplaceArray.push(targetTxt);
-		updateFilterList();
-		document.getElementById("replaceSource").value = "";
-		document.getElementById("replaceTarget").value = "";
-	}
-	
-	function updateFilterList(){
-	document.getElementById("filterList").innerHTML = "Filter list: ";
-	for(var i = 0; i < sourceReplaceArray.length; i++){
-		var source = sourceReplaceArray[i];
-		var target = targetReplaceArray[i];
-		var output = " (" + source.fontcolor("blue") + " replaced with: " + target.fontcolor("blue") + ")";
-		document.getElementById("filterList").innerHTML += output;
-		}
-	}
-	
+    <p>
+      Add a new filter:
+    </p>
+    <p>
+      Replace 
+      <textarea id="replaceSource" style=
+      "resize: none; background-color:lightGray;" rows="1">
+</textarea> with 
+      <textarea id="replaceTarget" style=
+      "resize: none; background-color:lightGray;" rows="1">
+</textarea> <button onclick="addFilter()">+</button>
+    </p>
+    <p id="filterList"></p><script type="text/javascript">
+    var sourceReplaceArray = [">>", "’"];
+        var targetReplaceArray = ["", "'"];
+        updateFilterList();
+        function addFilter(){
+                var sourceTxt = document.getElementById("replaceSource").value;
+                var targetTxt = document.getElementById("replaceTarget").value;
+                sourceReplaceArray.push(sourceTxt);
+                targetReplaceArray.push(targetTxt);
+                updateFilterList();
+                document.getElementById("replaceSource").value = "";
+                document.getElementById("replaceTarget").value = "";
+        }
+        
+        function updateFilterList(){
+        document.getElementById("filterList").innerHTML = "Filter list: ";
+        for(var i = 0; i < sourceReplaceArray.length; i++){
+                var source = sourceReplaceArray[i];
+                var target = targetReplaceArray[i];
+                var output = " (" + source.fontcolor("blue") + " replaced with: " + target.fontcolor("blue") + ")";
+                document.getElementById("filterList").innerHTML += output;
+                }
+        }
+        
                 var textarea = document.getElementById("inputText");
         var textarea2 = document.getElementById("outputText");
     function format() {
         var input = new String(textarea.value);
-		for(var i = 0; i < sourceReplaceArray.length; i++){
-			var regEx = new RegExp(sourceReplaceArray[i], "g");
-			input = input.replace(regEx, targetReplaceArray[i]);
-		}
+                for(var i = 0; i < sourceReplaceArray.length; i++){
+                        var regEx = new RegExp(sourceReplaceArray[i], "g");
+                        input = input.replace(regEx, targetReplaceArray[i]);
+                }
         textarea2.value = input;
         textarea2.select();
     } 
     </script>
-     <h1> How does it work? </h1>  
-    <p>
-      Just paste your matlab commands in the first text box then press the
-      button "Format!!", this will format your input to something that matlab
-      likes and all what's left is to press ctrl + c and you are done! Now you
-      can paste your commands in matlab...
-    </p>
+    <h1>
+      How does it work?
+    </h1>Just paste your matlab commands in the first text box then press the
+    button "Format!!", this will format your input to something that matlab
+    likes and all what's left is to press ctrl + c and you are done! Now you
+    can paste your commands in matlab...<br>
+    If there is still some text that needs to be replaced you can add your own
+    filter by typing the text to be replaced and what it should be replaced
+    with and press the "+" button. Now you can format your text again...
     <p>
       You can find some test samples in this link: <a href=
       "http://www.maths.lth.se/matstat/kurser/fms012/cdi/lab/fms012_lab4_ht16.pdf">
       matstat labb4</a>
+    </p>
+    <p>
+      Source code: <a href=
+      "https://github.com/ahmed91abbas/format4matlab/blob/gh-pages/index.html">github
+      index.html</a>
     </p>
   </body>
 </html>
