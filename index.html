@@ -22,7 +22,7 @@
       "height: 40px; width: 150px;"><b>Format!!</b></button>
     </p>
     <p>
-      Add a new filter:
+      Add a new filter or remove an existing one:
     </p>
     <p>
       Replace 
@@ -31,7 +31,9 @@
 </textarea> with 
       <textarea id="replaceTarget" style=
       "resize: none; background-color:lightGray;" rows="1">
-</textarea> <button onclick="addFilter()">+</button>
+</textarea> 
+	<button onclick="addFilter()">+</button>
+	<button onclick="removeFilter()">-</button>
     </p>
     <p id="filterList"></p>
 	<script type="text/javascript">
@@ -48,6 +50,20 @@
                 document.getElementById("replaceSource").value = "";
                 document.getElementById("replaceTarget").value = "";
         }
+		
+		function removeFilter(){
+			 var sourceTxt = document.getElementById("replaceSource").value;
+             var targetTxt = document.getElementById("replaceTarget").value;
+			 for(var i = 0; i < sourceReplaceArray.length; i++){
+				if(sourceTxt == sourceReplaceArray[i] && targetTxt == targetReplaceArray[i]){
+					sourceReplaceArray.splice(i, 1);
+					targetReplaceArray.splice(i, 1);
+				}	
+			 }
+			 updateFilterList();
+			 document.getElementById("replaceSource").value = "";
+             document.getElementById("replaceTarget").value = "";
+		}
         
         function updateFilterList(){
         document.getElementById("filterList").innerHTML = "Filter list: ";
@@ -80,7 +96,9 @@
     can paste your commands in matlab...<br>
     If there is still some text that needs to be replaced you can add your own
     filter by typing the text to be replaced and what it should be replaced
-    with and press the "+" button. Now you can format your text again...
+    with and press the "+" button. Now you can format your text again...<br>
+	To remove a filter type it in the text boxes as when you add a new filter but 
+	press the "-" button this time instead.
     <p>
       You can find some test samples in this link: <a href=
       "http://www.maths.lth.se/matstat/kurser/fms012/cdi/lab/fms012_lab4_ht16.pdf">
